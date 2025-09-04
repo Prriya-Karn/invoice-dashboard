@@ -3,8 +3,8 @@ import axios from "axios";
 
 async function fetchData() {
     const [poRes, invoiceRes] = await Promise.all([
-        axios.get("http://localhost:4000/purchaseOrders"),
-        axios.get("http://localhost:4000/invoices"),
+        axios.get("/api/purchaseOrders"),
+        axios.get("/api/invoices"),
     ]);
 
     const pos = poRes.data;

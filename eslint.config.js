@@ -6,8 +6,11 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
   globalIgnores(['dist']),
+
+  // ✅ Config for React/browser code
   {
     files: ['**/*.{js,jsx}'],
+    ignores: ['api/**'], // don't apply this to API routes
     extends: [
       js.configs.recommended,
       reactHooks.configs['recommended-latest'],
@@ -24,6 +27,18 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+
+  // ✅ Config for API (Node.js) code
+  {
+    files: ['api/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node, // now `process`, `__dirname`, etc. are valid
+      parserOptions: {
+        sourceType: 'module',
+      },
     },
   },
 ])
