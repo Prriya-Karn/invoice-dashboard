@@ -105,6 +105,42 @@
       "date": "2025-09-21",
       "status": "Pending",
       "dueInDays": 7
+    },
+    {
+      "vendor": "Priya service",
+      "amount": 200000,
+      "poNumber": "PO-1003",
+      "invoiceNumber": "INV-6009",
+      "date": "2025-09-28",
+      "status": "Pending",
+      "dueInDays": 7
+    },
+    {
+      "vendor": "ABC supplies",
+      "amount": 1200,
+      "poNumber": "1001",
+      "invoiceNumber": "INV-9001",
+      "date": "2025-09-29",
+      "status": "Pending",
+      "dueInDays": 7
+    },
+    {
+      "vendor": "ABC supplies",
+      "amount": 1200,
+      "poNumber": "PO-1001",
+      "invoiceNumber": "INV-6009",
+      "date": "2025-09-28",
+      "status": "Pending",
+      "dueInDays": 7
+    },
+    {
+      "vendor": "ABC Supplies",
+      "amount": 1200,
+      "poNumber": "PO-1001",
+      "invoiceNumber": "INV-9008",
+      "date": "2025-08-31",
+      "status": "Pending",
+      "dueInDays": 7
     }
   ]
 }

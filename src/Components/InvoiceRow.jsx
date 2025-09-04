@@ -2,7 +2,7 @@ import { Eye } from "lucide-react";
 import StatusBadge from "./StatusBadge";
 
 const currency = (n) =>
-    new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(n);
+    new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" }).format(n);
 
 export default function InvoiceRow({ invoice, onOpen }) {
     return (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion as Motion } from "framer-motion";
 import SummaryCard from "./Components/SummaryCard";
 import InvoiceList from "./Components/InvoiceList";
@@ -16,6 +16,11 @@ export default function App() {
   const [current, setCurrent] = useState(null);
   const [addOpen, setAddOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [invoicesState, setInvoicesState] = useState([]);
+
+  useEffect(() => {
+    setInvoicesState(invoices);
+  }, [invoices]);
 
   const count = (status) => invoices.filter((i) => i.status === status).length;
   const total = invoices.length || 1;
@@ -127,20 +132,27 @@ export default function App() {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2"
           >
-            <InvoiceList invoices={invoices} onOpen={(inv) => { setCurrent(inv); setOpen(true); }} />
+            <InvoiceList invoices={invoicesState} onOpen={(inv) => { setCurrent(inv); setOpen(true); }} />
           </Motion.div>
 
           <div className="grid w-full gap-6 lg:grid-cols-2">
             <Motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <InvoiceChart invoices={invoices} />
+              <InvoiceChart invoices={invoicesState} />
             </Motion.div>
             <Motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <InvoiceBarChart invoices={invoices} />
+              <InvoiceBarChart invoices={invoicesState} />
             </Motion.div>
           </div>
         </div>
 
-        <InvoiceDetailsModal open={open} onClose={() => setOpen(false)} invoice={current} />
+        <InvoiceDetailsModal
+          open={open}
+          onClose={() => setOpen(false)}
+          invoice={current}
+          invoices={invoicesState}
+          setInvoices={setInvoicesState}
+        />
+
         <AddInvoiceModal open={addOpen} onClose={() => setAddOpen(false)} />
       </main>
     </div>

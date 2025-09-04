@@ -28,7 +28,7 @@ export default function AddInvoiceForm({ onSuccess }) {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-  await axios.post("http://localhost:4000/invoices", {
+  await axios.post("/api/invoices", {
     ...form,
     amount: parseFloat(form.amount),
     date: form.date ? form.date.toISOString().split("T")[0] : null,
