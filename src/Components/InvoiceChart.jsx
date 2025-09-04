@@ -10,10 +10,10 @@ export default function InvoiceChart({ invoices }) {
     ];
 
     return (
-        <div className="rounded-2xl bg-white p-6 shadow-lg border">
+        <div className="rounded-2xl bg-white p-6 shadow-lg">
             <h3 className="text-lg font-semibold mb-4">Invoices by Status</h3>
-            <div className="h-64">
-                <ResponsiveContainer>
+            <div style={{ height: "256px" }}>
+                <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie
                             data={data}
