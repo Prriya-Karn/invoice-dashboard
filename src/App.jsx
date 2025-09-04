@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion as Motion } from "framer-motion";
-import SummaryCard from "./components/SummaryCard";
-import InvoiceList from "./components/InvoiceList";
-import InvoiceDetailsModal from "./components/InvoiceDetailsModal";
-import useInvoices from "./hooks/useInvoices";
-import InvoiceChart from "./components/InvoiceChart";
-import AddInvoiceModal from "./components/AddInvoiceModal";
-import InvoiceBarChart from "./components/InvoiceBarChart";
+import SummaryCard from "./Components/SummaryCard";
+import InvoiceList from "./Components/InvoiceList";
+import InvoiceDetailsModal from "./Components/InvoiceDetailsModal";
+import useInvoices from "./Hooks/useInvoices";
+import InvoiceChart from "./Components/InvoiceChart";
+import AddInvoiceModal from "./Components/AddInvoiceModal";
+import InvoiceBarChart from "./Components/InvoiceBarChart";
 import { Menu, X } from "lucide-react";
 
 
