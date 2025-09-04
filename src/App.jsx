@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import SummaryCard from "./components/SummaryCard";
 import InvoiceList from "./components/InvoiceList";
 import InvoiceDetailsModal from "./components/InvoiceDetailsModal";
@@ -12,7 +12,6 @@ import { Menu, X } from "lucide-react";
 
 export default function App() {
   const { data: invoices = [], isLoading, isError } = useInvoices();
-  console.log(invoices)
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(null);
   const [addOpen, setAddOpen] = useState(false);
@@ -111,7 +110,7 @@ export default function App() {
         </header>
 
         {/* KPI Cards */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
@@ -119,25 +118,25 @@ export default function App() {
           <SummaryCard title="Approved" value={`${metrics.approvedPct}%`} percent={metrics.approvedPct} />
           <SummaryCard title="Pending" value={`${metrics.pendingPct}%`} percent={metrics.pendingPct} />
           <SummaryCard title="Mismatched" value={`${metrics.mismatchPct}%`} percent={metrics.mismatchPct} />
-        </motion.div>
+        </Motion.div>
 
         {/* Chart + List */}
         <div className="grid grid-cols-1 gap-6">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2"
           >
             <InvoiceList invoices={invoices} onOpen={(inv) => { setCurrent(inv); setOpen(true); }} />
-          </motion.div>
+          </Motion.div>
 
           <div className="grid w-full gap-6 lg:grid-cols-2">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+            <Motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
               <InvoiceChart invoices={invoices} />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+            </Motion.div>
+            <Motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
               <InvoiceBarChart invoices={invoices} />
-            </motion.div>
+            </Motion.div>
           </div>
         </div>
 
